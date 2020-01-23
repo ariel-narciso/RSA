@@ -12,7 +12,7 @@ class RSA:
         self.__q = q
         self.__n = p * q # verificar se cada inteiro dentro da mensagem eh inferior ou igual a n
         self.__z = (p - 1) * (q - 1)
-        self.__e = self.candidatos(self.__z)[0] + 2 # Eh garantido que a lista nunca estará vazia?
+        self.__e = self.candidatos(self.__z)[0] # Eh garantido que a lista nunca estará vazia?
         # tem que achar d pra decriptar
         self.__mensagem = mensagem
 
