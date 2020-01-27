@@ -26,13 +26,16 @@ class RSA:
 		self.__p = p
 		self.__q = q
 		self.__n = p * q
+		self.__set = True
 		if not self.validarPQ(): # devem respeitar os limites minimos, serem primos e distintos
 			self.__p = 3
 			self.__q = 5
 			self.__n = 15
+			self.__set = False # pois argumentos passados nao sao validos
 		self.__mensagem = mensagem
 		if not self.validarMensagem(): # cada inteiro da mensagem deve ser menor que p * q
 			self.__mensagem = [0]
+			self.__set = False
 		self.__enc = enc # se a mensagem está ou não criptografada
 		self.setZED()
 	
@@ -67,6 +70,9 @@ class RSA:
 			return False
 		self.setZED()
 		return True
+
+	def getSet(self):
+		return self.__set
 	
 	def getPQ(self):
 		return [self.__p, self.__q]
