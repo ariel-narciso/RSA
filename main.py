@@ -22,30 +22,32 @@ while True:
 
         val = []
         while True:
-            aux = input('Insira um valor númerico ou um valor não númerico para encerrar: ')
-            if not aux.isnumeric:
+            aux = str(input('Insira um valor númerico ou um valor não númerico para encerrar: '))
+            if not aux.isnumeric():
                 break
             val.append(int(aux))
             carregado = True
 
         texto = RSA(p, q, val)
-        print('Valores CARREGADOS!!')
+        input('Valores CARREGADOS!!')
 
     elif op == '2':
         system('cls | clear')
+        print('2 - Encriptar\n\n')
         if carregado:
             texto.encriptar()
-            print(texto)
+            input('Valores encriptados: ' + texto.__str__())
         else:
-            print('Valores não carregados!')
+            input('Valores não carregados!')
         
     elif op == '3':
         system('cls | clear')
+        print('3 - Decriptar\n\n')
         if carregado:
             texto.decriptar()
-            print(texto)
+            input('Valores decriptados: ' + texto.__str__())
         else:
-            print('Valores não carregados!')
+            input('Valores não carregados!')
     elif op == '4':
         break
 
